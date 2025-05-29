@@ -2,10 +2,11 @@
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react"
 
 export default function Home() {
-  return  <SessionProvider>
+  return (
+     <SessionProvider>
     <Main />
   </SessionProvider>
- 
+  )
 
 }
 
@@ -14,7 +15,7 @@ function Main() {
 
   return (
     <div>
-      {session.status == "authenticated" && ( <button  onClick={() => { signOut() }}> SignOut  </button>)}
+      {session.status == "authenticated" && ( <button  onClick={() => { signOut() }}> Signout  </button>)}
       {session.status == "unauthenticated" && (<button  onClick={() => signIn()}> Signin</button> )}
 
     </div>
